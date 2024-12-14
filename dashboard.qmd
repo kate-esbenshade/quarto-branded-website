@@ -1,82 +1,110 @@
 ---
-title: "Brand"
-format: dashboard
+title: "Blog Post: Electricity Outages in Extreme Weather"
+description: "How extreme weather has been impacting power outages."
+author: "Kate Esbenshade"
+date: "12/14/2024"
+draft: true
 ---
 
-## Row
-This is a document themed using [**brand.yml**](https://posit-dev.github.io/brand-yml/)
+In a blog post that I referenced on my home page, called [The Electricity Distribution System Can Stay Resilient in Extreme Weather](https://www.ucsusa.org/resources/beyond-smokestack#ucs-report-downloads), I discussed methods in which we can update the electricity grid to better withstand the increased extreme weather that we are seeing with climate change. I referenced some statistics about how many extreme weather events have impacted power in recent years, and what that increase has looked like. However, I did not dive into the data to see what was actually happening. 
 
-## Row
+In this blog I will be looking at data from [Climate Central](https://www.climatecentral.org/) of power outages and their causes to understand how extreme weather is impacting the grid.
 
-::: {.valuebox icon="arrow-repeat"}
-In Progress 
+## Power Outages Are Increasing
 
-5
-:::
+First, it is interesting to see that power outages are generally increasing over the last 20 years, with the exception of the last three. Additionally, almost all of these are due to weather related factors. Aging infastructure is also an issue, which may contribute, but the initial factor for the outage is weather. However, due to this infastructure issue, it is difficult to fully attribute this start increase to increases in extreme weather.
 
+The interesting trend is the last three years. In 2021 and 2022, outages were still increasing, but weather related ones were decreasing, and then in 2023 both decreased. This could be due to a number of factors: a decrease in major weather events like large hurricanes (unlikely), upgraded infastructure particularly in places with extreme weather, or a different way of determining / quantifying the reason for an outage. This last option is interesting. If it is true that it is a data management change, meaning they identify what is from extreme weather and what is not differently, that brings up questions about the general validity of this data and other datasets too. 
 
-::: {.valuebox icon="arrow-up" title="Change" color="success"}
-20
-:::
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=12, fig.height=6}
 
+df <- read.csv("output.csv")
 
-::: {.valuebox icon="calendar-week" title="Hiccup" color="danger"}
-50
-:::
+# Assuming 'df' is your data frame
+df$year <- as.numeric(df$year)  # Ensure 'year' is numeric
+df <- df |> dplyr::filter(!is.na(year))
 
-<!--
-```python
-#| eval: false
-#| content: valuebox
-#| title: "Change"
-change = 20
-dict(
-    value = 20,
-    icon = "arrow-up",
-    color = "success"
-) 
+# Step 1: Count total outages by year
+year_counts_df <- df |>
+  dplyr::count(year) |>
+  dplyr::arrange(year)
+
+# Step 2: Count "yes" entries in the "weather-related?" column for each year
+weather_related_counts_df <- df |>
+  dplyr::filter(`weather.related.` == 'yes') |>
+  dplyr::count(year) |>
+  dplyr::arrange(year) |>
+  dplyr::rename(weather_related_yes = n)
+
+# Merge the dataframes for plotting
+merged_df <- dplyr::left_join(year_counts_df, weather_related_counts_df, by = "year")
+merged_df[is.na(merged_df$weather_related_yes), "weather_related_yes"] <- 0  # Fill NAs with 0
+
+# Plotting
+ggplot2::ggplot(merged_df, ggplot2::aes(x = year)) +
+  ggplot2::geom_line(ggplot2::aes(y = n, color = "Total Outages"), size = 1) +  # Plot the total counts
+  ggplot2::geom_point(ggplot2::aes(y = n, color = "Total Outages"), size = 3) +
+  ggplot2::geom_line(ggplot2::aes(y = weather_related_yes, color = "Weather Related Outages"), size = 1, linetype = "dashed") +  # Plot the "weather_related? yes" counts
+  ggplot2::geom_point(ggplot2::aes(y = weather_related_yes, color = "Weather Related Outages"), size = 3) +
+  ggplot2::scale_color_manual(values = c("Total Outages" = "black", "Weather Related Outages" = "#00AEEF")) +
+  ggplot2::labs(
+    title = "Power Outages per Year",
+    x = "Year",
+    y = "Count",
+    color = "Legend"
+  ) +
+  ggplot2::theme_minimal(base_size = 14) +
+  ggplot2::theme(
+    plot.title = ggplot2::element_text(size = 18, hjust = 0.5),
+    axis.title = ggplot2::element_text(size = 14),
+    legend.position = "right"
+  )
+
 ```
 
 
-```r
-#| eval: false
-#| content: valuebox
-#| title: "Hiccup"
+## Severe Weather is the Most Common Cause, but Others are Increasing
 
-list(
-  icon = "calendar-week",
-  color = "danger",
-  value = 50
-)
+The most common cause of weather related power outages is severe weather, which makes sense. Severe weather generally means large storms that can knock down power lines and cause other damage. However, there are also outages from heat related events, wildfires, and winter weather. As extreme heat increases, lines can sag and need to be turned off to prevent fires. The same happens with wildfires, or the lines short circuit or fail. All of these extremes are increasing with climate change, and we can see that in the following graph.
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=12, fig.height=6}
+
+# Use dplyr::, tidyr::, and ggplot2:: for explicit function calls
+df <- read.csv("output.csv")
+
+df <- df |>
+  dplyr::filter(weather_type != "" & !is.na(weather_type))
+
+# Create the pivot table
+pivot_df <- df |>
+  dplyr::count(year, weather_type) |>
+  tidyr::pivot_wider(names_from = weather_type, values_from = n, values_fill = 0)
+
+# Define custom colors
+custom_colors <- c('#6EC829', '#00AEEF', '#3044B5', '#FFC600', '#FF522B')
+
+# Convert to long format for plotting
+plot_data <- pivot_df |>
+  tidyr::pivot_longer(-year, names_to = "weather_type", values_to = "count")
+
+# Plot
+ggplot2::ggplot(plot_data, ggplot2::aes(x = factor(year), y = count, fill = weather_type)) +
+  ggplot2::geom_bar(stat = "identity", position = "stack") +
+  ggplot2::scale_fill_manual(values = custom_colors, name = "Weather Type") +
+  ggplot2::labs(
+    title = "Outages by Weather Type by Year",
+    x = "Year",
+    y = "Count"
+  ) +
+  ggplot2::theme_minimal(base_size = 14) +
+  ggplot2::theme(
+    plot.title = ggplot2::element_text(size = 18, hjust = 0.5),
+    legend.position = "right",
+    axis.title.x = ggplot2::element_text(size = 14),
+    axis.title.y = ggplot2::element_text(size = 14),
+    axis.text.x = ggplot2::element_text(angle = 45, hjust = 1)  # Tilting x-axis labels
+  )
+
+
 ```
--->
-
-
-## Row
-
-```{mermaid}
-%%| echo: false
-%%| fig-align: center
-%%| fig-responsive: true
-%%| title: "Mermaid Diagram"
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
-
-::: card
-::: card-header
-Static Image or Graphic
-:::
-::: card-body
-{{< placeholder 400 300 format=svg >}}
-:::
-:::
-
-
-
-## Row
-
-{{< lipsum 1 >}}

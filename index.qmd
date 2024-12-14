@@ -1,40 +1,60 @@
 ---
-title: "Brand"
-format:
-  html: 
-    other-links:
-      - href: dashboard.qmd
-        icon: speedometer
-        text: Dashboard
-  typst: 
-    output-file: index-typst.pdf
-  revealjs:
-    output-file: index-revealjs.html
-  dashboard: 
-    output-file: index-dashboard.html
+title: "Kate Esbenshade"
+about:
+  template: jolla
+  image: IMG_3216 2.jpg
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://x.com/ksesbenshade
+    - icon: github
+      text: Github
+      href: https://github.com/kate-esbenshade
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/kate-esbenshade-2b158418b/
 ---
 
-## Overview
+Kate Esbenshade is a senior at Stanford studying Earth Systems. She is also completing her masters in Energy and Environmental Policy. She is really interested in electricity and the grid, and how to use policy and economic mechanisms to integrate more clean energy sources. In her free time she enjoys spending time outdoors, playing frisbee and pickleball, and reading. 
 
-This is a document themed using [**brand.yml**](https://posit-dev.github.io/brand-yml/)
 
-::: {.content-visible when-format="html:js"}
+<!-- format: -->
+<!--   html: -->
+<!--     other-links: -->
+<!--       - href: dashboard.qmd -->
+<!--         icon: speedometer -->
+<!--         text: Dashboard -->
+<!--   typst: -->
+<!--     output-file: index-typst.pdf -->
+<!--   revealjs: -->
+<!--     output-file: index-revealjs.html -->
+<!--   dashboard: -->
+<!--     output-file: index-dashboard.html -->
+<!-- --- -->
 
-## Mermaid Diagram
+## Education
 
-The following is a Mermaid diagram with branding applied:
-```{mermaid}
-%%| echo: false
-%%| fig-align: center
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
+Stanford University | Palo Alto, CA |
+MS in Energy and Environmental Policy | Sept 2024 - June 2025
 
-:::
+Stanford University | Palo Alto, CA |
+BS in Earth Systems | Sept 2021 - June 2025
 
-## Subheading
+## Experience
 
-{{< lipsum 1 >}}
+Understand Energy Analyst, Precourt Institute for Energy
+Stanford University | Palo Alto, CA | July 2023 - Present
+
+Climate and Energy Intern
+Union of Concerned Scientists | Cambridge, MA | June 2024 - Sept 2024
+
+Research Intern
+AvanzaEV Porject | Washington, DC | June 2023 - Sept 2023
+
+## Work Examples
+
+[The Electricity Distribution System Can Stay Resilient in Extreme Weather](https://blog.ucsusa.org/guest-commentary/the-electricity-distribution-system-can-stay-resilient-in-extreme-weather/#:~:text=One%20set%20of%20solutions%20for,structural%20reinforcement%20of%20the%20infrastructure.)
+
+[Business Air Travel and Climate: Changing Behaviors Before, During, and Beyond the COVID-19 Pandemic](https://www.wri.org/research/business-air-travel-and-climate-changing-behaviors-during-and-beyond-covid-19-pandemic)
+
+[Beyond the Smokestack](https://www.ucsusa.org/resources/beyond-smokestack#ucs-report-downloads)
