@@ -6,4 +6,4 @@ title: "Most Common Websites"
 - [Twitter](https://x.com/?lang=en)
 - [New York Times Crossword](https://www.nytimes.com/crosswords)
 - [Canvas](https://canvas.stanford.edu/)
-- 
+- [The New Yorker](https://www.newyorker.com/)
