@@ -18,6 +18,9 @@ The interesting trend is the last three years. In 2021 and 2022, outages were st
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=12, fig.height=6}
 
+library(dplyr)
+library(ggplot2)
+
 df <- read.csv("output.csv")
 
 # Assuming 'df' is your data frame
@@ -69,6 +72,10 @@ The most common cause of weather related power outages is severe weather, which 
 
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=12, fig.height=6}
+
+library(dplyr)
+library(tidyr)
+library(ggplot2)
 
 # Use dplyr::, tidyr::, and ggplot2:: for explicit function calls
 df <- read.csv("output.csv")
