@@ -33,6 +33,9 @@ jobs:
           run: |
             R -e "install.packages('knitr')"
             R -e "install.packages('rmarkdown')"
+            R -e "install.packages('dplyr')"
+            R -e "install.packages('tidyr')"
+            R -e "install.packages('ggplot2')"
 
         - name: "Set up Quarto"
           uses: quarto-dev/quarto-actions/setup@v2
