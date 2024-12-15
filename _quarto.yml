@@ -7,7 +7,7 @@ website:
     left:
       - text: "Home"
         href: index.html
-      - text: "Dashboard"
+      - text: "Blog"
         href: dashboard.html
       - text: "Websites"
         href: websites.html

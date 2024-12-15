@@ -3,7 +3,7 @@ title: "Blog Post: Electricity Outages in Extreme Weather"
 description: "How extreme weather has been impacting power outages."
 author: "Kate Esbenshade"
 date: "12/14/2024"
-draft: true
+draft: false
 ---
 
 In a blog post that I referenced on my home page, called [The Electricity Distribution System Can Stay Resilient in Extreme Weather](https://www.ucsusa.org/resources/beyond-smokestack#ucs-report-downloads), I discussed methods in which we can update the electricity grid to better withstand the increased extreme weather that we are seeing with climate change. I referenced some statistics about how many extreme weather events have impacted power in recent years, and what that increase has looked like. However, I did not dive into the data to see what was actually happening. 
