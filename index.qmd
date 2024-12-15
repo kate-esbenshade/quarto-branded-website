@@ -4,15 +4,15 @@ about:
   template: jolla
   image: IMG_3216 2.jpg
   links:
-    - icon: twitter
-      text: Twitter
-      href: https://x.com/ksesbenshade
     - icon: github
       text: Github
       href: https://github.com/kate-esbenshade
     - icon: linkedin
       text: LinkedIn
       href: https://www.linkedin.com/in/kate-esbenshade-2b158418b/
+    - icon: envelope
+      text: Email Me
+      href: mailto:ksesben@stanford.edu
 ---
 
 Kate Esbenshade is a senior at Stanford studying Earth Systems. She is also completing her masters in Energy and Environmental Policy. She is really interested in electricity and the grid, and how to use policy and economic mechanisms to integrate more clean energy sources. In her free time she enjoys spending time outdoors, playing frisbee and pickleball, and reading. 
@@ -53,8 +53,10 @@ AvanzaEV Porject | Washington, DC | June 2023 - Sept 2023
 
 ## Work Examples
 
-[The Electricity Distribution System Can Stay Resilient in Extreme Weather](https://blog.ucsusa.org/guest-commentary/the-electricity-distribution-system-can-stay-resilient-in-extreme-weather/#:~:text=One%20set%20of%20solutions%20for,structural%20reinforcement%20of%20the%20infrastructure.)
+Here are a few examples of things I worked on or assisted with throughout my different experiences:
 
-[Business Air Travel and Climate: Changing Behaviors Before, During, and Beyond the COVID-19 Pandemic](https://www.wri.org/research/business-air-travel-and-climate-changing-behaviors-during-and-beyond-covid-19-pandemic)
+[The Electricity Distribution System Can Stay Resilient in Extreme Weather](https://blog.ucsusa.org/guest-commentary/the-electricity-distribution-system-can-stay-resilient-in-extreme-weather/#:~:text=One%20set%20of%20solutions%20for,structural%20reinforcement%20of%20the%20infrastructure.): This is a blog post I researched and wrote discusses mechanisms for increasing electricity grid resiliency with rising extreme weather due to climate change. 
 
-[Beyond the Smokestack](https://www.ucsusa.org/resources/beyond-smokestack#ucs-report-downloads)
+[Business Air Travel and Climate: Changing Behaviors Before, During, and Beyond the COVID-19 Pandemic](https://www.wri.org/research/business-air-travel-and-climate-changing-behaviors-during-and-beyond-covid-19-pandemic): I assisted with research and data analysis for this report, which discusses the impacts of business air travel on climate change and how the COVID-19 pandemic changed business travel behaviors.
+
+[Beyond the Smokestack](https://www.ucsusa.org/resources/beyond-smokestack#ucs-report-downloads): I assisted with research and data analysis for this report, which discusses the potential for different methods including utilizing carbon capture and storage, cofiring hydrogen, and including biomethane to reduce emissions from gas plants. It includes a tool to do a technology analysis as well as a white paper that demonstrates general results. 

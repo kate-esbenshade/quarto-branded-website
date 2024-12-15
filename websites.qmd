@@ -3,9 +3,13 @@ title: "Most Common Websites"
 
 ---
 
-List of my most common websites:
+Here is a list of my most common websites:
 
 - [Twitter](https://x.com/?lang=en)
 - [New York Times Crossword](https://www.nytimes.com/crosswords)
 - [Canvas](https://canvas.stanford.edu/)
 - [The New Yorker](https://www.newyorker.com/)
+- [Sporcle](https://www.sporcle.com/)
+- [The New York Times](https://www.nytimes.com/)
+- [Goodreads](https://www.goodreads.com/)
+

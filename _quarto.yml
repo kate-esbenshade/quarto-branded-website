@@ -13,7 +13,12 @@ website:
         href: websites.html
     tools:
       - icon: github
-        href: https://github.com/stanford-brand-yml/quarto-branded-website
+        href: https://github.com/kate-esbenshade
+      - icon: linkedin
+        href: https://www.linkedin.com/in/kate-esbenshade-2b158418b/
+      - icon: envelope
+        href: mailto:ksesben@stanford.edu
+      
 
 format:
   html:
