@@ -28,6 +28,11 @@ jobs:
           with:
             r-version: 'latest'  # You can specify a version like '4.1.0' if you need a specific version
 
+      # Install required R packages (knitr, rmarkdown)
+        - name: Install R packages
+          run: |
+            R -e "install.packages('knitr')"
+            R -e "install.packages('rmarkdown')"
 
         - name: "Set up Quarto"
           uses: quarto-dev/quarto-actions/setup@v2
